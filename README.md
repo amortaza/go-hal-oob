@@ -10,8 +10,17 @@ Hal is how Bellina creates an initial window with a given dimension and title.
 
 In your application, call `bl.Start(...)` to start Bellina
 
+See example/haloob-example.go for a complete application
+
+> NOTE: haloob's implementation uses GLFW, which requires `runtime.LockOSThread()` in `init()`
+
 ```go
-import "<path>/go-hal-oob"
+import "github.com/amortaza/go-bellina"
+import "github.com/amortaza/go-hal-oob"
+
+func init() {
+	runtime.LockOSThread()
+}
 
 func main() {
     hal := haloob.New()
