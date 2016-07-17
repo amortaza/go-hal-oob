@@ -12,6 +12,7 @@ In your application, call `bl.Start(...)` to start Bellina
 
 ```go
 import "<path>/go-hal-oob"
+
 func main() {
     hal := haloob.New()
     bl.Start(hal, 800, 600, "Title", onInit, onTick, onUninit))
