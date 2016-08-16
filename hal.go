@@ -2,7 +2,7 @@ package haloob
 
 import (
 	"github.com/amortaza/go-xel2"
-	"github.com/amortaza/go-bellina/constants"
+	"github.com/amortaza/go-bellina"
 )
 
 type Hal struct {
