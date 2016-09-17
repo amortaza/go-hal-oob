@@ -3,7 +3,7 @@ package main
 import (
 	"runtime"
 	"github.com/amortaza/go-bellina"
-	"github.com/amortaza/go-hal-oob"
+	"github.com/amortaza/go-hal-g5"
 )
 
 func initialize() {
