@@ -1,7 +1,7 @@
 package hal_g5
 
 import (
-	"github.com/amortaza/go-xel-goxjs"
+	"github.com/amortaza/go-xel"
 	"github.com/amortaza/go-bellina"
 	"github.com/amortaza/go-g5"
 	"fmt"
