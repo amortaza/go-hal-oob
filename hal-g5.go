@@ -1,29 +1,36 @@
 package hal_g5
 
 import (
+	"github.com/amortaza/go-hal"
 	"github.com/amortaza/go-xel"
 	"github.com/amortaza/go-g5"
-	"github.com/amortaza/go-bellina"
 )
 
 type Hal struct {
+
+	graphics *Graphics
 }
 
-func New() *Hal {
+func NewHal() *Hal {
 
-	return &Hal{}
+	return &Hal{ graphics: &Graphics{} }
 }
 
 func (hal *Hal) Start(
-		width, height int,
 		title string,
+
+		width, height int,
+
 		onAfterGL,
 		onLoop,
 		onBeforeDeleteWindow func(),
-		onResize,
+
+		onWindowResize,
+
 		onMouseMove func(int,int),
-		onMouseButton func(xel.MouseButton, xel.ButtonAction),
-		onKey func(xel.KeyboardKey, xel.ButtonAction, bool, bool, bool)) {
+		onMouseButton func(hal.MouseButton, hal.ButtonAction),
+
+		onKey func(hal.KeyboardKey, hal.ButtonAction, bool, bool, bool)) {
 
 	xel.Init(width, height)
 
@@ -49,34 +56,17 @@ func (hal *Hal) Start(
 			g5.Uninit()
 		},
 
-		onResize, onMouseMove, onMouseButton, onKey)
+		onWindowResize,
+
+		onMouseMove,
+		onMouseButton,
+		onKey)
 
 	xel.Loop(title)
 }
+func (hal *Hal) GetGraphics() hal.Graphics {
 
-func (hal *Hal) NewCanvas(width, height int) bl.Canvas {
-
-	return g5.NewCanvas(width, height)
-}
-
-func (hal *Hal) Clear(r, g, b float32) {
-
-	g5.Clear(r, g, b)
-}
-
-func (hal *Hal) PushView(width, height int) {
-
-	g5.PushView(width, height)
-}
-
-func (hal *Hal) PopView() {
-
-	g5.PopView()
-}
-
-func (hal *Hal) GetGraphics() bl.Graphics {
-
-	return hal
+	return hal.graphics
 }
 
 func (hal *Hal) GetWindowDim()(width, height int) {
@@ -89,7 +79,7 @@ func (hal *Hal) GetMousePos()(x,y int) {
 	return xel.MouseX, xel.MouseY
 }
 
-func (hal *Hal) SetMouseCursor(cursor bl.MouseCursor) {
+func (hal *Hal) SetMouseCursor(cursor hal.MouseCursor) {
 
 	xel.SetMouseCursor(cursor)
 }
