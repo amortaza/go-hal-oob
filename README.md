@@ -23,7 +23,7 @@ func init() {
 }
 
 func main() {
-    hal := haloob.New()
+    hal := hal_g5.NewHal()()
     bl.Start(hal, 800, 600, "Title", onInit, onTick, onUninit))
 }
 
