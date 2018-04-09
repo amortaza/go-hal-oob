@@ -19,7 +19,7 @@ func NewHal() *Hal {
 func (hal *Hal) Start(
 		title string,
 
-		width, height int,
+		left, top, width, height int,
 
 		onAfterGL,
 		onLoop,
@@ -32,7 +32,7 @@ func (hal *Hal) Start(
 
 		onKey func(hal.KeyboardKey, hal.ButtonAction, bool, bool, bool)) {
 
-	xel.Init(width, height)
+	xel.Init(left,top, width, height)
 
 	xel.SetCallbacks(
 
