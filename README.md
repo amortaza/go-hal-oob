@@ -1,18 +1,27 @@
-# haloob
-halloob is an Out Of Box (oob) implementation of the Hal interface for Bellina.
+# Package `haloob`
+`haloob` is an Out Of Box (oob) implementation of the `hal` interface for Bellina.
 
-> Hal stands for the `Hardware Abstraction Layer`
+> HAL stands for the `Hardware Abstraction Layer`
 
-Through an object that implements the Hal interface, Bellina can interact with the OS window and be aware of window resize, mouse, and keyboard events.
-Hal is how Bellina creates an initial window with a given dimension and title.
+It uses the `g5` package for its graphics implementation.
+
+Through an object that implements the `hal` interface, Bellina can interact with the OS window and be aware of window resize, mouse, and keyboard events.
+
+`hal` is how Bellina creates an initial window with a given dimension and title.
+
+# Installation
+
+`go get -u github.com/amortaza/go-hal-oob`
 
 # usage
 
-In your application, call `bl.Start(...)` to start Bellina
+In your application, call `bl.Start(...)` to start Bellina.  `bl.Start(...)` requires a `hal` interface implementation.
+
+`haloob.NewHal()` provides an object that implements the `hal` interface.
 
 See example/haloob-example.go for a complete application
 
-> NOTE: haloob's implementation uses GLFW, which requires `runtime.LockOSThread()` in `init()`
+> NOTE: `haloob`'s implementation uses GLFW, which requires `runtime.LockOSThread()` in `init()`
 
 ```go
 import "github.com/amortaza/go-bellina"

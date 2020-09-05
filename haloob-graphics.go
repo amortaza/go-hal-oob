@@ -1,8 +1,8 @@
-package hal_g5
+package haloob
 
 import (
-	"github.com/amortaza/go-hal"
 	"github.com/amortaza/go-g5"
+	"github.com/amortaza/go-hal"
 )
 
 type Graphics struct {

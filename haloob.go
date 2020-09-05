@@ -1,9 +1,9 @@
-package hal_g5
+package haloob
 
 import (
+	"github.com/amortaza/go-g5"
 	"github.com/amortaza/go-hal"
 	"github.com/amortaza/go-xel"
-	"github.com/amortaza/go-g5"
 )
 
 type Hal struct {
@@ -30,7 +30,7 @@ func (hal *Hal) Start(
 		onMouseMove func(int,int),
 		onMouseButton func(hal.MouseButton, hal.ButtonAction),
 
-		onKey func(hal.KeyboardKey, hal.ButtonAction, bool, bool, bool)) {
+		onKey func(key hal.KeyboardKey, action hal.ButtonAction, alt, ctrl, shift bool)) {
 
 	xel.Init(left,top, width, height)
 
